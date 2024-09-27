@@ -1,8 +1,8 @@
-preco = float(input('Enter the price of a product: '))
-p = int(input('Enter a discount percentage (0-100%): '))
+price = float(input('Enter the price of the product: '))
+percentage = float(input('Enter a discount percentage: '))
 
-desconto = preco * (p / 100)
+discount = price * (percentage / 100)
 
-calculo = float(preco - desconto)
+calculation = float(price - discount)
 
-print('\nThe product with an initial price of %.2f and a discount of %d percent comes to %.2f' % (preco, p, calculo))
+print('The initial price of the product is %.2f, with a discount of %.2f%%, the final price is %.2f.' % (price, percentage, calculation))
