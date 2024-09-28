@@ -16,7 +16,7 @@ if installation == 'R' or installation == 'r':
         price_per_kWh = 0.65
     else:
         print('The amount of kilowatt-hours (kWh) is invalid.')
-    print(f'You have to pay R${kWh * price_per_kWh}.')
+    print(f'You have to pay R${kWh * price_per_kWh:.2f}.')
 elif installation == 'B' or installation == 'b':
     if kWh <= 1000:
         price_per_kWh = 0.55
@@ -24,7 +24,7 @@ elif installation == 'B' or installation == 'b':
         price_per_kWh = 0.6
     else:
         print('The amount of kilowatt-hours (kWh) is invalid.')
-    print(f'You have to pay R${kWh * price_per_kWh}.')
+    print(f'You have to pay R${kWh * price_per_kWh:.2f}.')
 elif installation == 'I' or installation == 'i':
     if kWh <= 5000:
         price_per_kWh = 0.55
@@ -32,6 +32,6 @@ elif installation == 'I' or installation == 'i':
         price_per_kWh = 0.6
     else:
         print('The amount of kilowatt-hours (kWh) is invalid.')
-    print(f'You have to pay R${kWh * price_per_kWh}.')
+    print(f'You have to pay R${kWh * price_per_kWh:.2f}.')
 else:
     print('The installation you entered is invalid.')
