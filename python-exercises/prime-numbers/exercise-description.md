@@ -1,4 +1,3 @@
 # Exercise - Prime Numbers
 
-Escreva um algoritmo que encontre todos os números primos de 2 até 99.
-Imprima na tela todos eles.
+Write an algorithm that finds all prime numbers from 2 to 99. Print them on the screen.
