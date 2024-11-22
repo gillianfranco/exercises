@@ -1,5 +1,5 @@
-celsius = float(input('Enter the temperature in Celsius (ºC): '))
+def toFahrenheit(celsius):
+    return ((9 * celsius) / 5) + 32
 
-fahrenheit = ((9 * celsius) / 5) + 32
-
-print('The value of %.2f°C is equivalent to %.2f°F.' % (celsius, fahrenheit))
+celsius_temperature = float(input('Enter a Celsius temperature: '))
+print('---> In Fahrenheit, it\'s {} degrees'.format(toFahrenheit(celsius_temperature)))
