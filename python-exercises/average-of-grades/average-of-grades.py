@@ -1,16 +1,13 @@
-grades = [] #or grades = list()
-grade = 0
-sum_grades = 0
+grades = list()
 
-while grade >= 0 :
-    grade = float(input('Enter a grade (Enter a negative value to leave): '))
-    if grade >= 0 :
-        grades.append(grade) 
+while True:
+    grade = float(input('Enter the student\'s grade (Enter a negative number to leave): '))
 
-for i in grades :
-    sum_grades += i
+    if grade < 0:
+        break
 
-average_grades = sum_grades / len(grades)
+    grades.append(grade)
 
-print('\n', grades)
-print('Average: %.2f' % average_grades)
+average = sum(grades) / len(grades)
+
+print('Average:', average)
