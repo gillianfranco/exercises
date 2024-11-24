@@ -1,10 +1,38 @@
-km_driven = float(input('Enter the number of kilometers driven: '))
-days_rented = int(input('Enter the number of days rented: '))
+def verify_kilometers(question):
+    while True:
+        try:
+            km = float(input(question))
 
-price_per_day = 60
-price_per_km = 0.15
+            while km <= 0:
+                km = float(input('Invalid value. Try again: '))
 
-total = (km_driven * price_per_km) + (days_rented * price_per_day)
-res = f'You have to pay R${total}'
+            break
 
-print(res)
+        except ValueError:
+            print('Invalid value. Try again.\n')
+            continue
+
+    return km
+
+def verify_days(question):
+    while True:
+        try:
+            days = float(input(question))
+
+            while days < 0:
+                days = float(input('Invalid value. Try again: '))
+
+            break
+
+        except ValueError:
+            print('Invalid value. Try again.\n')
+            continue
+
+    return days
+
+calculate_price = lambda km, days: (km * 0.15) + (days * 60)
+
+km_driven = verify_kilometers('Enter the number of kilometers driven: ')
+days_rented = verify_days('Enter the number of days rented: ')
+
+print('\nPrice to pay:', calculate_price(km_driven, days_rented))
