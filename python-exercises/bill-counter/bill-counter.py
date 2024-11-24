@@ -1,50 +1,57 @@
-value = int(input("Enter a value in Reais (R$): "))
-
-quantity100 = 0
-quantity50 = 0
-quantity20 = 0
-quantity10 = 0
-quantity5 = 0
-quantity1 = 0
-
-while True :
-    if value >= 100 :
-        quantity100 += value // 100
-        value -= quantity100 * 100
-        print(f'Quantity of 100 bills: {quantity100}')
-        if not value :
+def verify_value(question):
+    while True:
+        try:
+            value = int(input(question))
+            while value <= 0:
+                value = int(input('Invalid value. Try again: $'))
             break
+        except ValueError:
+            print('Invalid value. Try again.')
+            continue
+    return value
 
-    if value >= 50 :
-        quantity50 += value // 50
-        value -= quantity50 * 50
-        print(f'Quantity of 50 bills: {quantity50}')
-        if not value :
-            break
+def bills_to_pay(value):
+    bills = {
+        '$100': 0,
+        '$50': 0,
+        '$20': 0,
+        '$10': 0,
+        '$5': 0,
+        '$1': 0
+    }
 
-    if value >= 20 :
-        quantity20 += value // 20
-        value -= quantity20 * 20
-        print(f'Quantity of 20 bills: {quantity20}')
-        if not value :
-            break
+    if value >= 100:
+        bills['$100'] += value // 100
+        value -= bills['$100'] * 100
 
-    if value >= 10 :
-        quantity10 += value // 10
-        value -= quantity10 * 10
-        print(f'Quantity of 10 bills: {quantity10}')
-        if not value :
-            break
+    if value >= 50:
+        bills['$50'] += value // 50
+        value -= bills['$50'] * 50
 
-    if value >= 5 :
-        quantity5 += value // 5
-        value -= quantity5 * 5
-        print(f'Quantity of 5 bills: {quantity5}')
-        if not value :
-            break
+    if value >= 20:
+        bills['$20'] += value // 20
+        value -= bills['$20'] * 20
 
-    if value >= 1 :
-        quantity1 += value // 1
-        value -= quantity1 * 1
-        print(f'Quantity of 1 bills: {quantity1}')
-        break
+    if value >= 10:
+        bills['$10'] += value // 10
+        value -= bills['$10'] * 10
+
+    if value >= 5:
+        bills['$5'] += value // 5
+        value -= bills['$5'] * 5
+
+    if value >= 1:
+        bills['$1'] += value // 1
+        value -= bills['$1'] * 1
+
+    return bills
+
+value = verify_value('Enter a value in dolars: $')
+
+bills = bills_to_pay(value)
+print('\nBill(s): ')
+for key, value in bills.items():
+    if value == 0:
+        continue
+
+    print(value, 'of', key)
