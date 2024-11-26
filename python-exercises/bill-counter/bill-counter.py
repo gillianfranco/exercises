@@ -46,7 +46,7 @@ def bills_to_pay(value):
 
     return bills
 
-value = verify_value('Enter a value in dolars: $')
+value = verify_value('Enter a value in dollars: $')
 
 bills = bills_to_pay(value)
 print('\nBill(s): ')
