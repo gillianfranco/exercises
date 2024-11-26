@@ -1,12 +1,26 @@
-subject1 = float(input('Enter the grade of the first subject: '))
-subject2 = float(input('Enter the grade of the second subject: '))
-subject3 = float(input('Enter the grade of the third subject: '))
+def verify_grades(question):
+    while True:
+        try:
+            grade = float(input(question))
+            if grade < 0 or grade > 10:
+                print('Invalid grade. Enter a grade between 1 and 10, please.\n')
+                continue
+            break
+        except ValueError:
+            print('Invalid grade. Try again.\n')
+            continue
+    return grade
 
-min_for_approval = 7
+grades = []
 
-average = (subject1 + subject2 + subject3) / 3
+for i in range(3):
+    grades.append(verify_grades(f'Enter the grade {i + 1}: '))
 
-if subject1 >= min_for_approval and subject2 >= min_for_approval and subject3 >= min_for_approval:
-    print('You got the approval! Your average was %.2f.' % average)
+average = sum(grades) / 3
+
+print('\nThe average is {:.2f}'.format(average))
+
+if average >= 7:
+    print('The student is approved!')
 else:
-    print("You don't got the approval. Your average was %.2f." % average)
+    print('The student is not approved.')
